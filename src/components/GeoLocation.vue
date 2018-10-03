@@ -54,7 +54,7 @@ export default {
     navigator.geolocation.getCurrentPosition(location => {
       this.appendLocation(location, "fetched");
     });
-    // const watchId = navigator.geolocation.watchPosition(this.appendLocation);
+    navigator.geolocation.watchPosition(this.appendLocation);
   }
 };
 </script>
