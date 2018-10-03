@@ -50,6 +50,7 @@ export default {
   },
 
   mounted() {
+    // https://whatwebcando.today/geolocation.html
     navigator.geolocation.getCurrentPosition(location => {
       this.appendLocation(location, "fetched");
     });
