@@ -21,6 +21,7 @@ export default {
     },
 
     embededOpenStreetMapUrl() {
+      if (!(this.location.longitude && this.location.latitude)) return;
       return `https://www.openstreetmap.org/export/embed.html?bbox=${
         this.location.longitude
       }%2C${this.location.latitude}%2C${this.location.longitude}%2C${
