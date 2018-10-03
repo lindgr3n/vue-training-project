@@ -1,23 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <geo-location />
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
-import GeoLocation from "./components/GeoLocation.vue";
-
-export default {
-  name: "app",
-  components: {
-    HelloWorld,
-    GeoLocation
-  }
-};
-</script>
 
 <style>
 #app {
