@@ -12,53 +12,10 @@
         <div class="category-card" v-for="category in categories" :key="category.key">
           <div class="category-title"><h3>{{category.label}}</h3></div>
           <ul class="category-sections">
-            <li v-for="page in Object.keys(category.pages)" :key="page" class="category-sections-item"><a class="category-sections-item-link"><i class="category-section-item-icon material-icons">{{category.pages[page].icon}}</i>{{category.pages[page].label}}</a></li>
-            <!-- <li class="category-sections-item"><a class="category-sections-item-link"><i class="category-section-item-icon material-icons">camera_alt</i>Audio and viedo capture</a></li> -->
-            <!-- <li class="category-sections-item"><a class="category-sections-item-link"><i class="category-section-item-icon material-icons">camera_alt</i>Advanced camera controls</a></li>
-            <li class="category-sections-item"><a class="category-sections-item-link"><i class="category-section-item-icon material-icons">camera_alt</i>recording media</a></li>
-            <li class="category-sections-item"><a class="category-sections-item-link"><i class="category-section-item-icon material-icons">camera_alt</i>Realtime communucation</a></li> -->
+            <li v-for="page in Object.keys(category.pages)" :key="page" class="category-sections-item"><router-link class="category-sections-item-link" :to="category.pages[page].route"><i class="category-section-item-icon material-icons">{{category.pages[page].icon}}</i>{{category.pages[page].label}}</router-link></li>
           </ul>
         </div>
-        <div class="category-card">
-          <div class="category-title"><h3>Native Behaviors</h3></div>
-          <ul class="category-sections">
-            <li class="category-sections-item">1</li>
-            <li class="category-sections-item">2</li>
-            <li class="category-sections-item">3</li>
-          </ul>
-        </div>
-        <div class="category-card">
-         <div class="category-title"><h3>Native Behaviors</h3></div>
-          <ul class="category-sections">
-            <li class="category-sections-item">1</li>
-            <li class="category-sections-item">2</li>
-            <li class="category-sections-item">3</li>
-          </ul>
-        </div>
-        <div class="category-card">
-         <div class="category-title"><h3>Native Behaviors</h3></div>
-          <ul class="category-sections">
-            <li class="category-sections-item">1</li>
-            <li class="category-sections-item">2</li>
-            <li class="category-sections-item">3</li>
-          </ul>
-        </div>
-        <div class="category-card">
-         <div class="category-title"><h3>Native Behaviors</h3></div>
-          <ul class="category-sections">
-            <li class="category-sections-item">1</li>
-            <li class="category-sections-item">2</li>
-            <li class="category-sections-item">3</li>
-          </ul>
-        </div>
-        <div class="category-card">
-         <div class="category-title"><h3>Native Behaviors</h3></div>
-          <ul class="category-sections">
-            <li class="category-sections-item">1</li>
-            <li class="category-sections-item">2</li>
-            <li class="category-sections-item">3</li>
-          </ul>
-        </div>
+
       </div>
       <!-- <h1>Examples</h1>
       <div class="gallery">
@@ -154,6 +111,7 @@ header {
 .category-sections-item-link {
   display: flex;
   align-items: center;
+  color: inherit;
 }
 
 .category-section-item-icon {
