@@ -1,4 +1,6 @@
-# vue-training-project
+# What web can do in Vue!
+
+Implementing examples from [WhatWebCanDo](https://whatwebcando.today/) in Vue
 
 ## Project setup
 ```
