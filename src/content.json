@@ -1,0 +1,55 @@
+{
+  "categories": {
+    "cameraandmicrophone": {
+      "label": "Camera & Microphone",
+      "pages": {
+        "audioandvideocapture": {
+          "label": "Audio & Video Capture",
+          "route": "audio-video-capture",
+          "icon": "camera_alt",
+          "test": ["navigator.getUserMedia", "navigator.mediaDevices"]
+        },
+        "advancedcameracontrols": {
+          "label": "Advanced Camera Controls",
+          "route": "advanced-camera-controls",
+          "icon": "camera_roll",
+          "test": ["window.ImageCapture"]
+        },
+        "recordingmedia": {
+          "label": "Recording Media",
+          "route": "recording-media",
+          "icon": "mic",
+          "test": ["window.MediaRecorder"]
+        },
+        "realtimecommunication": {
+          "label": "Real-time Communication",
+          "route": "real-time-communication",
+          "icon": "videocam",
+          "test": ["window.RTCPeerConnection"]
+        }
+      }
+    },
+    "locationandposition": {
+      "label": "Location & Position",
+      "pages": {
+        "geolocation": {
+          "label": "Geolocation",
+          "route": "geo-location",
+          "icon": "gps_fixed",
+          "test": ["navigator.geolocation"]
+        }
+      }
+    },
+    "operatingsystem": {
+      "label": "Operating System",
+      "pages": {
+        "storagequotas": {
+          "label": "Storage Quotas",
+          "route": "storage-quotas", 
+          "icon": "sim_card",
+          "test": ["navigator.storage.estimate", "navigator.webkitPersistentStorage"]
+        }
+      }
+    }
+  }
+}
