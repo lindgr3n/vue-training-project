@@ -29,6 +29,122 @@
         }
       }
     },
+    "nativebehaviors": {
+      "label": "Native Behaviors",
+      "pages": {
+        "localnotifications": {
+          "label": "Local Notifications",
+          "route": "local-notifications",
+          "icon": "system_update",
+          "test": ["window.Notification", "ServiceWorkerRegistration.showNotification"]
+        },
+        "pushmessages": {
+          "label": "Push Messages",
+          "route": "push-messages",
+          "icon": "tap_and_play",
+          "test": ["window.PushManager"]
+        },
+        "homescreeninstallation": {
+          "label": "Home Screen Installation",
+          "route": "home-screen-installation",
+          "icon": "get_app",
+          "test": ["window.BeforeInstallPromptEvent"]
+        },
+        "Foreground Detection": {
+          "label": "Foreground Detection",
+          "route": "foreground-detection",
+          "icon": "flip_to_front",
+          "test": ["document.visibilityState"]
+        },
+        "Permissions": {
+          "label": "Permissions",
+          "route": "permissions",
+          "icon": "lock_open",
+          "test": ["navigator.permissions"]
+        }
+      }
+    },
+    "seamlessexperience": {
+      "label": "Seamless Experience",
+      "pages": {
+        "offlinemode": {
+          "label": "Offline Mode",
+          "route": "offline-mode",
+          "icon": "settings_applications",
+          "test": ["navigator.serviceWorker"]
+        },
+        "backgroundsync": {
+          "label": "Background Sync",
+          "route": "background-sync",
+          "icon": "backup",
+          "test": ["window.SyncManager"]
+        },
+        "interappcommunication": {
+          "label": "Inter-App Communication",
+          "route": "inter-app-communication",
+          "icon": "explore",
+          "test": ["navigator.share"]
+        },
+        "payments": {
+          "label": "Payments",
+          "route": "payments",
+          "icon": "payment",
+          "test": ["window.PaymentRequest"]
+        },
+        "credentials": {
+          "label": "Credentials",
+          "route": "credentials",
+          "icon": "lock_open",
+          "test": ["navigator.credentials"]
+        }
+      }
+    },
+    "advertisement": {
+      "label": "Advertisement",
+      "pages": ""
+    },
+    
+    "operatingsystem": {
+      "label": "Operating System",
+      "pages": {
+        "offlinestorage": {
+          "label": "Offline Storage",
+          "route": "offline-storage",
+          "icon": "folder_special",
+          "test": ["window.sessionStorage", "window.localStorage", "window.indexedDB","window.caches", "navigator.storage"]
+        },
+        "fileaccess": {
+          "label": "File Access",
+          "route": "file-access",
+          "icon": "sd_storage",
+          "test": ["window.File"]
+        },
+        "contacts": {
+          "label": "Contacts",
+          "route": "contacts",
+          "icon": "account_box",
+          "test": ["navigator.contacts.oncontactschange"]
+        },
+        "smsmms": {
+          "label": "SMS/MMS",
+          "route": "sms-mms",
+          "icon": "message",
+          "test": ["navigator.sms", "navigator.mms", "navigator.messaging"]
+        },
+        "storagequotas": {
+          "label": "Storage Quotas",
+          "route": "storage-quotas", 
+          "icon": "sim_card_alert",
+          "test": ["navigator.storage.estimate", "navigator.webkitPersistentStorage"]
+        },
+        "taskscheduling": {
+          "label": "Task Scheduling",
+          "route": "task-scheduling",
+          "icon": "alarm",
+          "test": ["ServiceWorkerRegistration.taskScheduler"]
+        }
+      }
+    },
     "locationandposition": {
       "label": "Location & Position",
       "pages": {
@@ -37,19 +153,137 @@
           "route": "geo-location",
           "icon": "gps_fixed",
           "test": ["navigator.geolocation"]
+        },
+        "geofencing": {
+          "label": "Geofencing",
+          "route": "geofencing",
+          "icon": "group_work",
+          "test": ["window.GeofenceManager"]
+        },
+        "deviceposition": {
+          "label": "Device Position",
+          "route": "device-position",
+          "icon": "screen_rotation",
+          "test": ["window.DeviceOrientationEvent", "window.AbsoluteOrientationSensor", "window.RelativeOrientationSensor"]
+        },
+        "Device Motion": {
+          "label": "Device Motion",
+          "route": "device-motion",
+          "icon": "3d_rotation",
+          "test": ["window.DeviceMotionEvent", "window.Accelerometer", "window.Gyroscope", "window.Magnetometer", "window.LinearAccelerationSensor", "window.GravitySensor"]
+        },
+        "Proximity Sensors": {
+          "label": "Proximity Sensors",
+          "route": "proximity-sensors",
+          "icon": "leak_add",
+          "test": ["window.ondeviceproximity", "window.onuserproximity", "window.ProximitySensor"]
         }
       }
     },
-    "operatingsystem": {
-      "label": "Operating System",
+    "devicefeatures": {
+      "label": "Device Features",
       "pages": {
-        "storagequotas": {
-          "label": "Storage Quotas",
-          "route": "storage-quotas", 
-          "icon": "sim_card",
-          "test": ["navigator.storage.estimate", "navigator.webkitPersistentStorage"]
+        "networktypespeed": {
+          "label": "Network Type & Speed",
+          "route": "network-type-speed",
+          "icon": "wifi_tethering",
+          "test": ["navigator.connection"]
+        },
+        "onlinestate": {
+          "label": "Online State",
+          "route": "online-state",
+          "icon": "signal_cellular_4_bar",
+          "test": ["navigator.onLine"]
+        },
+        "vibration": {
+          "label": "Vibration",
+          "route": "vibration",
+          "icon": "vibration",
+          "test": ["navigator.vibrate"]
+        },
+        "batterystatus": {
+          "label": "Battery Status",
+          "route": "battery-status",
+          "icon": "battery_full",
+          "test": ["navigator.getBattery", "navigator.battery"]
+        },
+        "devicememory": {
+          "label": "Device Memory",
+          "route": "device-memory",
+          "icon": "memory",
+          "test": ["navigator.deviceMemory"]
+        }
+      }
+    },
+    "input": {
+      "label": "Input",
+      "pages": {
+        "touchgestures": {
+          "label": "Touch Gestures",
+          "route": "touch-gestures",
+          "icon": "gesture",
+          "test": ["window.ontouchstart", "window.onpointerdown"]
+        },
+        "Speech Recognition": {
+          "label": "Speech Recognition",
+          "route": "speech-recognition",
+          "icon": "mic",
+          "test": ["window.webkitSpeechRecognition"]
+        },
+        "clipboardcopypaste": {
+          "label": "Clipboard (Copy & Paste)",
+          "route": "clipboard-copy-paste)",
+          "icon": "file_copy",
+          "test": ["window.ClipboardEvent", "document.oncut", "document.oncopy", "document.onpaste", "navigator.clipboard"]
+        },
+        "pointingdeviceadaptation": {
+          "label": "Pointing Device Adaptation",
+          "route": "pointing-device-adaptation",
+          "icon": "mouse",
+          "test": ["window.matchMedia('(pointer: none), (pointer: coarse), (pointer: fine)').matches"]
+        }
+      }
+    },
+    "screenoutput": {
+      "label": "Screen & Output",
+      "pages": {
+        "virtualaugmentedreality": {
+          "label": "Virtual & Augmented Reality",
+          "route": "virtualaugmentedreality",
+          "icon": "dvr",
+          "test": ["navigator.getVRDisplays", "navigator.xr"]
+        },
+        "fullscreen": {
+          "label": "Fullscreen",
+          "route": "fullscreen",
+          "icon": "fullscreen",
+          "test": ["document.documentElement.webkitRequestFullScreen", "document.documentElement.webkitRequestFullscreen"]
+        },
+        "screenorientationlock": {
+          "label": "Screen Orientation & Lock",
+          "route": "screen-orientation-lock",
+          "icon": "screen_lock_rotation",
+          "test": ["screen.orientation", "screen.lockOrientation"]
+        },
+        "wakelock": {
+          "label": "Wake Lock",
+          "route": "wake-lock",
+          "icon": "lock",
+          "test": ["screen.keepAwake", "navigator.getWakeLock"]
+        },
+        "presentationfeatures": {
+          "label": "Presentation Features",
+          "route": "presentation-features",
+          "icon": "tv",
+          "test": ["navigator.presentation", "window.PresentationRequest"]
         }
       }
     }
+  },
+  "temp": {
+    "label": "temp",
+    "route": "temp",
+    "icon": "temp",
+    "test": ["temp"]
   }
 }
