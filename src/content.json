@@ -99,10 +99,6 @@
         }
       }
     },
-    "advertisement": {
-      "label": "Advertisement",
-      "pages": ""
-    },
     
     "operatingsystem": {
       "label": "Operating System",
@@ -152,7 +148,8 @@
           "label": "Geolocation",
           "route": "geo-location",
           "icon": "gps_fixed",
-          "test": ["navigator.geolocation"]
+          "test": ["navigator.geolocation"],
+          "status": "IMPLEMENTED"
         },
         "geofencing": {
           "label": "Geofencing",
