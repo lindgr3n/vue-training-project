@@ -6,15 +6,6 @@ export default {
     };
   },
 
-  methods: {
-    appendLocation(location) {
-      this.location = {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude
-      };
-    }
-  },
-
   computed: {
     isGeoLocationSupported() {
       return "geolocation" in navigator;
@@ -47,6 +38,15 @@ export default {
       this.appendLocation(location, "fetched");
     });
     navigator.geolocation.watchPosition(this.appendLocation);
+  },
+
+  methods: {
+    appendLocation(location) {
+      this.location = {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+      };
+    }
   },
 
   render() {

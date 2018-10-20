@@ -1,8 +1,8 @@
 <template>
   <div class="gallery">
     <router-link :to="route">
-      <h3>{{title}}</h3>
-      <div class="desc">{{description}}</div>
+      <h3>{{ title }}</h3>
+      <div class="desc">{{ description }}</div>
     </router-link>
   </div>
 </template>
@@ -15,10 +15,12 @@ export default {
       required: true
     },
     title: {
-      type: String
+      type: String,
+      default: ""
     },
     description: {
-      type: String
+      type: String,
+      default: ""
     }
   }
 };

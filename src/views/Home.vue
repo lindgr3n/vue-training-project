@@ -1,28 +1,40 @@
 <template>
   <div class="home">
-      <header class="banner">
-        <img :src="html5Logo" class="logo" />
-        <div>
-          <h1>What Web Can Do In Vue</h1>
-          <p>Examples from https://whatwebcando.today/ done in Vue!</p> 
-        </div>
-        <img :src="vueLogo" class="logo" />
-      </header>
-      <div class="category-wrapper">
-        <div class="category-card" v-for="category in categories" :key="category.key">
-          <div class="category-title"><h3>{{category.label}}</h3></div>
-          <ul class="category-sections">
-            <li v-for="page in Object.keys(category.pages)" :key="page" class="category-sections-item"><router-link class="category-sections-item-link" :to="category.pages[page].route"><i class="category-section-item-icon material-icons">{{category.pages[page].icon}}</i>{{category.pages[page].label}}</router-link></li>
-          </ul>
-        </div>
-
+    <header class="banner">
+      <img 
+        :src="html5Logo" 
+        class="logo" >
+      <div>
+        <h1>What Web Can Do In Vue</h1>
+        <p>Examples from https://whatwebcando.today/ done in Vue!</p> 
       </div>
-      <!-- <h1>Examples</h1>
+      <img 
+        :src="vueLogo" 
+        class="logo" >
+    </header>
+    <div class="category-wrapper">
+      <div 
+        v-for="category in categories" 
+        :key="category.key" 
+        class="category-card">
+        <div class="category-title"><h3>{{ category.label }}</h3></div>
+        <ul class="category-sections">
+          <li 
+            v-for="page in Object.keys(category.pages)" 
+            :key="page" 
+            class="category-sections-item"><router-link 
+              :to="category.pages[page].route" 
+              class="category-sections-item-link"><i class="category-section-item-icon material-icons">{{ category.pages[page].icon }}</i>{{ category.pages[page].label }}</router-link></li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- <h1>Examples</h1>
       <div class="gallery">
         <gallery-item route="/geo-location" title="GeoLocation" description="Geo location and how to use it..."></gallery-item>
       </div> -->
       
-    </div>
+  </div>
 </template>
 
 <script>
@@ -32,7 +44,7 @@ import vueLogo from "@/assets/vueLogo.png";
 import content from "@/content.json";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     GalleryItem
   },

@@ -1,9 +1,21 @@
 <template>
   <div class="container">
-    {{location}}
-    <a :href="linkOpenSteetMapUrl" target="_blank">View in Open Street map</a>
-    <a :href="linkGoogleMapUrl" target="_blank">View in Google maps</a>
-    <iframe width="450" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :src="embededOpenStreetMapUrl" style="border: 1px solid black"></iframe><br/><small><a :href="linkOpenSteetMapUrl">Visa större karta</a></small>
+    {{ location }}
+    <a 
+      :href="linkOpenSteetMapUrl" 
+      target="_blank">View in Open Street map</a>
+    <a 
+      :href="linkGoogleMapUrl" 
+      target="_blank">View in Google maps</a>
+    <iframe 
+      :src="embededOpenStreetMapUrl" 
+      width="450" 
+      height="350" 
+      frameborder="0" 
+      scrolling="no" 
+      marginheight="0" 
+      marginwidth="0" 
+      style="border: 1px solid black"/><br><small><a :href="linkOpenSteetMapUrl">Visa större karta</a></small>
     <span v-if="!isGeoLocationSupported">Geolocation API not supported.</span>
   </div>
 </template>
@@ -41,6 +53,14 @@ export default {
     }
   },
 
+  mounted() {
+    // https://whatwebcando.today/geolocation.html
+    navigator.geolocation.getCurrentPosition(location => {
+      this.appendLocation(location, "fetched");
+    });
+    navigator.geolocation.watchPosition(this.appendLocation);
+  },
+
   methods: {
     appendLocation(location) {
       this.location = {
@@ -48,14 +68,6 @@ export default {
         longitude: location.coords.longitude
       };
     }
-  },
-
-  mounted() {
-    // https://whatwebcando.today/geolocation.html
-    navigator.geolocation.getCurrentPosition(location => {
-      this.appendLocation(location, "fetched");
-    });
-    navigator.geolocation.watchPosition(this.appendLocation);
   }
 };
 </script>
