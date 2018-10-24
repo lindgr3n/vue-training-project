@@ -2,8 +2,8 @@
   <div>
     <h1>Sorry this have not been implemented yet!</h1>
     Pleas submit an PR at <a 
-      href="https://github.com/lindgr3n/vue-training-project" 
-      target="_blank"> vue-training-project</a> for it if you want to speed it up!
+      href="https://github.com/lindgr3n/what-web-can-do-in-vue" 
+      target="_blank">what-web-can-do-in-vue</a> for it if you want to speed up the development!
   </div>
 </template>
 
