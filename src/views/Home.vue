@@ -12,6 +12,18 @@
         :src="vueLogo" 
         class="logo" >
     </header>
+    <div class="icon-explination">
+      <div class="icon-explination-item">
+        <i class="material-icons color-failure">error_outline</i> Not implemented
+      </div>
+      <div class="icon-explination-item">
+        <i 
+        class="material-icons color-success">done</i> Feature available in your current browser
+      </div>
+      <div class="icon-explination-item">
+        <i class="material-icons color-failure">close</i> Feature not available in your current browser
+      </div>
+    </div>
     <div class="category-wrapper">
       <div 
         v-for="category in categories" 
@@ -22,9 +34,34 @@
           <li 
             v-for="page in Object.keys(category.pages)" 
             :key="page" 
-            class="category-sections-item"><router-link 
+            class="category-sections-item">
+            <i 
+              v-if="category.pages[page].status !== 'IMPLEMENTED'" 
+              class="material-icons color-failure"
+              title="Not implemented">
+              error_outline
+            </i>
+            <router-link 
               :to="category.pages[page].route" 
-              class="category-sections-item-link"><i class="category-section-item-icon material-icons">{{ category.pages[page].icon }}</i>{{ category.pages[page].label }}</router-link></li>
+              class="category-sections-item-link">
+              <i class="category-section-item-icon material-icons">{{ category.pages[page].icon }}</i>
+              {{ category.pages[page].label }}
+            </router-link>
+            <i 
+              v-if="availableInBrowser(category.pages[page].test)"
+              title="Feature available in your current browser"
+              class="material-icons color-success"
+            >
+              done
+            </i>
+            <i 
+              v-if="!availableInBrowser(category.pages[page].test)" 
+              title="Feature not available in your current browser"
+              class="material-icons color-failure"
+            >
+              close
+            </i>
+          </li>
         </ul>
       </div>
 
@@ -42,6 +79,7 @@ import GalleryItem from "@/components/GalleryItem.vue";
 import html5Logo from "@/assets/html5logo.svg";
 import vueLogo from "@/assets/vueLogo.png";
 import content from "@/content.json";
+import { browserSupports } from "@/utils";
 
 export default {
   name: "Home",
@@ -65,6 +103,15 @@ export default {
 
       return categories;
     }
+  },
+  methods: {
+    availableInBrowser(toTest) {
+      console.log(toTest);
+      const exist = toTest.filter(browserSupports);
+      console.log("Exists: ", exist);
+
+      return toTest.length === exist.length;
+    }
   }
 };
 </script>
@@ -81,6 +128,16 @@ header {
   background-size: 115px;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+.color-success {
+  color: green;
+}
+.color-failure {
+  color: red;
+}
+
 .banner {
   display: flex;
   justify-content: space-between;
@@ -90,6 +147,20 @@ header {
 
 .logo {
   height: 100px;
+}
+
+.icon-explination {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-explination-item {
+  align-items: center;
+  display: flex;
+  padding: 1em;
+}
+.icon-explination-item > i {
+  padding-right: 10px;
 }
 
 .category-wrapper {
@@ -118,12 +189,16 @@ header {
 
 .category-sections-item {
   list-style-type: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .category-sections-item-link {
   display: flex;
   align-items: center;
   color: inherit;
+  flex: 1;
 }
 
 .category-section-item-icon {
