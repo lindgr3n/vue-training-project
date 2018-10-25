@@ -167,7 +167,7 @@ header {
 
 .category-wrapper {
   display: grid;
-  padding: 2em 1em 0 1em;
+  padding: 0 1em 0 1em;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
