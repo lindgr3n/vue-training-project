@@ -2,6 +2,7 @@
   <div>
     <h1>Sorry this have not been implemented yet!</h1>
     Pleas submit an PR at <a 
+      data-testid="test-link"
       href="https://github.com/lindgr3n/what-web-can-do-in-vue" 
       target="_blank">what-web-can-do-in-vue</a> for it if you want to speed up the development!
   </div>
