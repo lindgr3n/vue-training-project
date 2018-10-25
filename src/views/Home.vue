@@ -6,21 +6,23 @@
         class="logo" >
       <div>
         <h1 data-testid="header">What Web Can Do In Vue</h1>
-        <p>Examples from https://whatwebcando.today/ done in Vue!</p> 
+        <p>Examples from <a 
+          href="https://whatwebcando.today/" 
+          target="_blank">WhatWebCanDo</a> done in Vue!</p> 
       </div>
       <img 
         :src="vueLogo" 
         class="logo" >
     </header>
-    <div class="icon-explination">
-      <div class="icon-explination-item">
+    <div class="icon-explanation">
+      <div class="icon-explanation-item">
         <i class="material-icons color-failure">error_outline</i> Not implemented
       </div>
-      <div class="icon-explination-item">
+      <div class="icon-explanation-item">
         <i 
         class="material-icons color-success">done</i> Feature available in your current browser
       </div>
-      <div class="icon-explination-item">
+      <div class="icon-explanation-item">
         <i class="material-icons color-failure">close</i> Feature not available in your current browser
       </div>
     </div>
@@ -50,14 +52,14 @@
             <i 
               v-if="availableInBrowser(category.pages[page].test)"
               title="Feature available in your current browser"
-              class="material-icons color-success"
+              class="category-section-item-feature material-icons color-success"
             >
               done
             </i>
             <i 
               v-if="!availableInBrowser(category.pages[page].test)" 
               title="Feature not available in your current browser"
-              class="material-icons color-failure"
+              class="category-section-item-feature material-icons color-failure"
             >
               close
             </i>
@@ -149,23 +151,23 @@ header {
   height: 100px;
 }
 
-.icon-explination {
+.icon-explanation {
   display: flex;
   justify-content: center;
 }
 
-.icon-explination-item {
+.icon-explanation-item {
   align-items: center;
   display: flex;
   padding: 1em;
 }
-.icon-explination-item > i {
+.icon-explanation-item > i {
   padding-right: 10px;
 }
 
 .category-wrapper {
   display: grid;
-  padding: 2em 1em 0 1em;
+  padding: 0 1em 0 1em;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -203,5 +205,28 @@ header {
 
 .category-section-item-icon {
   padding: 10px;
+}
+
+.category-section-item-feature {
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .banner {
+    align-items: center;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .icon-explanation {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .icon-explanation-item {
+    padding: 0.2em;
+  }
 }
 </style>
