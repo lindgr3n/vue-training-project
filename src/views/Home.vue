@@ -5,7 +5,7 @@
         :src="html5Logo" 
         class="logo" >
       <div>
-        <h1>What Web Can Do In Vue</h1>
+        <h1 data-testid="header">What Web Can Do In Vue</h1>
         <p>Examples from https://whatwebcando.today/ done in Vue!</p> 
       </div>
       <img 
@@ -106,9 +106,9 @@ export default {
   },
   methods: {
     availableInBrowser(toTest) {
-      console.log(toTest);
+      // console.log(toTest);
       const exist = toTest.filter(browserSupports);
-      console.log("Exists: ", exist);
+      // console.log("Exists: ", exist);
 
       return toTest.length === exist.length;
     }
