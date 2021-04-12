@@ -7,24 +7,28 @@
           "label": "Audio & Video Capture",
           "route": "audio-video-capture",
           "icon": "camera_alt",
+          "caniuse": "stream",
           "test": ["navigator.getUserMedia", "navigator.mediaDevices"]
         },
         "advancedcameracontrols": {
           "label": "Advanced Camera Controls",
           "route": "advanced-camera-controls",
           "icon": "camera_roll",
+          "caniuse": "",
           "test": ["window.ImageCapture"]
         },
         "recordingmedia": {
           "label": "Recording Media",
           "route": "recording-media",
           "icon": "mic",
+          "caniuse": "mediarecorder",
           "test": ["window.MediaRecorder"]
         },
         "realtimecommunication": {
           "label": "Real-time Communication",
           "route": "real-time-communication",
           "icon": "videocam",
+          "caniuse": "rtcpeerconnection",
           "test": ["window.RTCPeerConnection"]
         }
       }
@@ -36,30 +40,35 @@
           "label": "Local Notifications",
           "route": "local-notifications",
           "icon": "system_update",
+          "caniuse": "notifications",
           "test": ["window.Notification", "ServiceWorkerRegistration.showNotification"]
         },
         "pushmessages": {
           "label": "Push Messages",
           "route": "push-messages",
           "icon": "tap_and_play",
+          "caniuse": "push-api",
           "test": ["window.PushManager"]
         },
         "homescreeninstallation": {
           "label": "Home Screen Installation",
           "route": "home-screen-installation",
           "icon": "get_app",
+          "caniuse": "",
           "test": ["window.BeforeInstallPromptEvent"]
         },
         "Foreground Detection": {
           "label": "Foreground Detection",
           "route": "foreground-detection",
           "icon": "flip_to_front",
+          "caniuse": "pagevisibility",
           "test": ["document.visibilityState"]
         },
         "Permissions": {
           "label": "Permissions",
           "route": "permissions",
           "icon": "lock_open",
+          "caniuse": "permissions-api",
           "test": ["navigator.permissions"]
         }
       }
@@ -71,30 +80,35 @@
           "label": "Offline Mode",
           "route": "offline-mode",
           "icon": "settings_applications",
+          "caniuse": "serviceworkers",
           "test": ["navigator.serviceWorker"]
         },
         "backgroundsync": {
           "label": "Background Sync",
           "route": "background-sync",
           "icon": "backup",
+          "caniuse": "background-sync",
           "test": ["window.SyncManager"]
         },
         "interappcommunication": {
           "label": "Inter-App Communication",
           "route": "inter-app-communication",
           "icon": "explore",
+          "caniuse": "web-share",
           "test": ["navigator.share"]
         },
         "payments": {
           "label": "Payments",
           "route": "payments",
           "icon": "payment",
+          "caniuse": "payment-request",
           "test": ["window.PaymentRequest"]
         },
         "credentials": {
           "label": "Credentials",
           "route": "credentials",
           "icon": "lock_open",
+          "caniuse": "credential-management",
           "test": ["navigator.credentials"]
         }
       }
@@ -107,36 +121,42 @@
           "label": "Offline Storage",
           "route": "offline-storage",
           "icon": "folder_special",
+          "caniuse": "namevalue-storage",
           "test": ["window.sessionStorage", "window.localStorage", "window.indexedDB","window.caches", "navigator.storage"]
         },
         "fileaccess": {
           "label": "File Access",
           "route": "file-access",
           "icon": "sd_storage",
+          "caniuse": "fileapi",
           "test": ["window.File"]
         },
         "contacts": {
           "label": "Contacts",
           "route": "contacts",
           "icon": "account_box",
+          "caniuse": "",
           "test": ["navigator.contacts.oncontactschange"]
         },
         "smsmms": {
           "label": "SMS/MMS",
           "route": "sms-mms",
           "icon": "message",
+          "caniuse": "",
           "test": ["navigator.sms", "navigator.mms", "navigator.messaging"]
         },
         "storagequotas": {
           "label": "Storage Quotas",
           "route": "storage-quotas", 
           "icon": "sim_card_alert",
+          "caniuse": "web-app-manifest",
           "test": ["navigator.storage.estimate", "navigator.webkitPersistentStorage"]
         },
         "taskscheduling": {
           "label": "Task Scheduling",
           "route": "task-scheduling",
           "icon": "alarm",
+          "caniuse": "",
           "test": ["ServiceWorkerRegistration.taskScheduler"]
         }
       }
@@ -148,6 +168,7 @@
           "label": "Geolocation",
           "route": "geo-location",
           "icon": "gps_fixed",
+          "caniuse": "geolocation",
           "test": ["navigator.geolocation"],
           "status": "IMPLEMENTED"
         },
@@ -155,24 +176,28 @@
           "label": "Geofencing",
           "route": "geofencing",
           "icon": "group_work",
+          "caniuse": "",
           "test": ["window.GeofenceManager"]
         },
         "deviceposition": {
           "label": "Device Position",
           "route": "device-position",
           "icon": "screen_rotation",
+          "caniuse": "deviceorientation",
           "test": ["window.DeviceOrientationEvent", "window.AbsoluteOrientationSensor", "window.RelativeOrientationSensor"]
         },
         "Device Motion": {
           "label": "Device Motion",
           "route": "device-motion",
           "icon": "3d_rotation",
+          "caniuse": "",
           "test": ["window.DeviceMotionEvent", "window.Accelerometer", "window.Gyroscope", "window.Magnetometer", "window.LinearAccelerationSensor", "window.GravitySensor"]
         },
         "Proximity Sensors": {
           "label": "Proximity Sensors",
           "route": "proximity-sensors",
           "icon": "leak_add",
+          "caniuse": "proximity",
           "test": ["window.ondeviceproximity", "window.onuserproximity", "window.ProximitySensor"]
         }
       }
@@ -184,30 +209,35 @@
           "label": "Network Type & Speed",
           "route": "network-type-speed",
           "icon": "wifi_tethering",
+          "caniuse": "netinfo",
           "test": ["navigator.connection"]
         },
         "onlinestate": {
           "label": "Online State",
           "route": "online-state",
           "icon": "signal_cellular_4_bar",
+          "caniuse": "online-status",
           "test": ["navigator.onLine"]
         },
         "vibration": {
           "label": "Vibration",
           "route": "vibration",
           "icon": "vibration",
+          "caniuse": "vibration",
           "test": ["navigator.vibrate"]
         },
         "batterystatus": {
           "label": "Battery Status",
           "route": "battery-status",
           "icon": "battery_full",
+          "caniuse": "battery-status",
           "test": ["navigator.getBattery", "navigator.battery"]
         },
         "devicememory": {
           "label": "Device Memory",
           "route": "device-memory",
           "icon": "memory",
+          "caniuse": "",
           "test": ["navigator.deviceMemory"]
         }
       }
@@ -219,24 +249,28 @@
           "label": "Touch Gestures",
           "route": "touch-gestures",
           "icon": "gesture",
+          "caniuse": "touch",
           "test": ["window.ontouchstart", "window.onpointerdown"]
         },
         "Speech Recognition": {
           "label": "Speech Recognition",
           "route": "speech-recognition",
           "icon": "mic",
+          "caniuse": "speech-recognition",
           "test": ["window.webkitSpeechRecognition"]
         },
         "clipboardcopypaste": {
           "label": "Clipboard (Copy & Paste)",
           "route": "clipboard-copy-paste)",
           "icon": "file_copy",
+          "caniuse": "clipboard",
           "test": ["window.ClipboardEvent", "document.oncut", "document.oncopy", "document.onpaste", "navigator.clipboard"]
         },
         "pointingdeviceadaptation": {
           "label": "Pointing Device Adaptation",
           "route": "pointing-device-adaptation",
           "icon": "mouse",
+          "caniuse": "css-media-interaction",
           "test": ["window.matchMedia('(pointer: none), (pointer: coarse), (pointer: fine)').matches"]
         }
       }
@@ -248,30 +282,35 @@
           "label": "Virtual & Augmented Reality",
           "route": "virtualaugmentedreality",
           "icon": "dvr",
+          "caniuse": "webvr",
           "test": ["navigator.getVRDisplays", "navigator.xr"]
         },
         "fullscreen": {
           "label": "Fullscreen",
           "route": "fullscreen",
           "icon": "fullscreen",
+          "caniuse": "fullscreen",
           "test": ["document.documentElement.webkitRequestFullScreen", "document.documentElement.webkitRequestFullscreen"]
         },
         "screenorientationlock": {
           "label": "Screen Orientation & Lock",
           "route": "screen-orientation-lock",
           "icon": "screen_lock_rotation",
+          "caniuse": "screen-orientation",
           "test": ["screen.orientation", "screen.lockOrientation"]
         },
         "wakelock": {
           "label": "Wake Lock",
           "route": "wake-lock",
           "icon": "lock",
+          "caniuse": "",
           "test": ["screen.keepAwake", "navigator.getWakeLock"]
         },
         "presentationfeatures": {
           "label": "Presentation Features",
           "route": "presentation-features",
           "icon": "tv",
+          "caniuse": "",
           "test": ["navigator.presentation", "window.PresentationRequest"]
         }
       }
@@ -281,6 +320,7 @@
     "label": "temp",
     "route": "temp",
     "icon": "temp",
+    "caniuse": "",
     "test": ["temp"]
   }
 }

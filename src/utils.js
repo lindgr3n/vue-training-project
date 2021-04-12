@@ -1,25 +1,15 @@
-export function browserSupports(inputs) {
-  if (!window) return false;
-  if (!inputs) return false;
+import axios from "axios";
+export async function browserSupports(input) {
+  const { browser, version, caniuse } = input;
 
-  const parts = inputs.split(".");
-  // console.log("Parts: ", inputs);
+  const response = await axios({
+    baseURL: "https://cdn.jsdelivr.net/gh/Fyrd/caniuse@master/features-json/",
+    url: `/${caniuse}.json`
+  }).catch(error => console.log("Oh noe...", error));
 
-  const isSupported = parts.reduce((toTest, currectPart, index, totalPaths) => {
-    // console.log("Test: " + currectPart + " " + toTest[currectPart]);
-
-    if (supported(toTest[currectPart])) {
-      if (index === totalPaths.length - 1) {
-        return true;
-      } else {
-        return toTest[currectPart];
-      }
-    } else return false;
-  }, window);
-
-  return isSupported;
-}
-
-function supported(input) {
-  return typeof input === "function" || typeof input === "object";
+  const parsedVersion = version.split(".")[0]; // FIXME
+  return {
+    supported: response.data.stats[browser][parsedVersion],
+    data: response.data
+  };
 }

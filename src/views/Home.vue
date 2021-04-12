@@ -50,16 +50,23 @@
               {{ category.pages[page].label }}
             </router-link>
             <i 
-              v-if="availableInBrowser(category.pages[page].test)"
+              v-if="availableInBrowser(category.pages[page].caniuse) === 'ok'"
               title="Feature available in your current browser"
               class="category-section-item-feature material-icons color-success"
             >
               done
             </i>
             <i 
-              v-if="!availableInBrowser(category.pages[page].test)" 
-              title="Feature not available in your current browser"
-              class="category-section-item-feature material-icons color-failure"
+              v-if="availableInBrowser(category.pages[page].caniuse) === 'no'"
+              title="Feature available in your current browser"
+              class="category-section-item-feature material-icons color-success"
+            >
+              done
+            </i>
+            <i 
+              v-if="!availableInBrowser(category.pages[page].caniuse) === 'unkown'" 
+              title="Unkown"
+              class="category-section-item-feature material-icons"
             >
               close
             </i>
@@ -82,6 +89,7 @@ import html5Logo from "@/assets/html5logo.svg";
 import vueLogo from "@/assets/vueLogo.png";
 import content from "@/content.json";
 import { browserSupports } from "@/utils";
+import { detect } from "detect-browser";
 
 export default {
   name: "Home",
@@ -93,7 +101,9 @@ export default {
     return {
       html5Logo,
       vueLogo,
-      content
+      content,
+      browser: detect(),
+      available: {}
     };
   },
 
@@ -106,13 +116,48 @@ export default {
       return categories;
     }
   },
-  methods: {
-    availableInBrowser(toTest) {
-      // console.log(toTest);
-      const exist = toTest.filter(browserSupports);
-      // console.log("Exists: ", exist);
 
-      return toTest.length === exist.length;
+  mounted() {
+    // const browser = detect();
+    // console.log(browser);
+  },
+  async created() {
+    console.log();
+    const keys = this.categories.reduce((keys, item) => {
+      Object.keys(item.pages).map(key => {
+        if (item.pages[key].caniuse) keys.push(item.pages[key].caniuse);
+      });
+      return keys;
+    }, []);
+
+    const chain = await keys.map(async caniuse => {
+      console.log("INSIED", caniuse);
+      if (!caniuse) {
+        return;
+      }
+      const { supported, data } = await browserSupports({
+        browser: this.browser.name,
+        version: this.browser.version,
+        caniuse
+      });
+
+      return { supported, data, caniuse };
+    });
+    this.available = await Promise.all(chain);
+    // // const exist = toTest.filter(browserSupports);
+    // // // console.log("Exists: ", exist);
+
+    // return supported.includes("y") || supported.includes("p");
+    // this.available = keys;
+  },
+  methods: {
+    availableInBrowser(caniuse) {
+      if (!(this.available && this.available.length > 0)) return;
+      const canUse = this.available.find(o => o.caniuse === caniuse);
+      if (!canUse) return "unkown";
+      return canUse.supported.includes("y") || canUse.supported.includes("p")
+        ? "yes"
+        : "no";
     }
   }
 };

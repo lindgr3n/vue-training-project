@@ -6,11 +6,23 @@ describe("utils", () => {
       expect(utils).toBeDefined();
     });
 
-    it("should validate that support exist or not", () => {
-      expect(utils.browserSupports()).toEqual(false);
-      expect(utils.browserSupports("donotexist")).toEqual(false);
-      expect(utils.browserSupports("window")).toEqual(true);
-      expect(utils.browserSupports("window.navigator")).toEqual(true);
+    it("should validate that support exist or not", async () => {
+      const { supported, data } = await utils.browserSupports({
+        browser: "chrome",
+        version: "75",
+        caniuse: "geolocation"
+      });
+
+      expect(supported).toEqual("y #1");
+      expect(data.title).toEqual("Geolocation");
+
+      const response = await utils.browserSupports({
+        browser: "ie",
+        version: "5.5",
+        caniuse: "geolocation"
+      });
+
+      expect(response.supported).toEqual("n");
     });
   });
 });
